@@ -41,12 +41,17 @@ module.exports = {
         use: [{loader: 'tslint-loader'}],
       },
       {
-        test: /icons.+\.svg$/,
+        test: /\.svg$/,
         loader: 'svg-sprite-loader',
+        include: path.resolve(__dirname, 'svgs'),
+        options: {
+          symbolId: '[name]-icon'
+        }
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(eot|woff(2)?|ttf|svg)$/,
         loader: 'file-loader',
+        exclude: path.resolve(__dirname, 'svgs'),
       },
       {
         test: /\.md$/,
