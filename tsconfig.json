@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "utils/*": ["include/utils/*"],
-      "stylesheets": ["stylesheets/"],
+      "styles": ["styles/"],
       "examples": ["examples/"]
     },
     "rootDirs": ["include"],

@@ -14,9 +14,9 @@ module.exports = {
     libraryTarget: 'umd',
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.styl', '.stylus'],
     alias: {
-      stylesheets: path.resolve(__dirname, 'stylesheets'),
+      stylesheets: path.resolve(__dirname, 'styles'),
       examples: path.resolve(__dirname, 'examples'),
       lib: path.resolve(__dirname, 'lib'),
     },
@@ -58,23 +58,17 @@ module.exports = {
         loader: 'text-loader',
       },
       {
-        test: /\.s([ac])ss$/,
+        test: /\.(styl|stylus|css)$/,
         use: [
-          devMode ? 'style-loader' : {
+          {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              // publicPath: '../'
+              hmr: !devMode
             }
           },
           'css-loader',
-          {
-            loader: "sass-loader",
-            options: {
-              sassOptions: {
-                includePaths: [path.resolve(__dirname, 'stylesheets', 'include')]
-              }
-            }
-          }]
+          'stylus-loader',
+        ]
       }
     ],
   },
