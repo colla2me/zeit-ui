@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = Object.assign({}, base, {
   mode: "development",
   entry: {
-    example: './example.tsx',
+    example: 'examples/app.tsx',
   },
   plugins: [...base.plugins, new HtmlWebpackPlugin({
     title: 'zeit-ui',

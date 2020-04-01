@@ -16,7 +16,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.styl', '.stylus'],
     alias: {
-      stylesheets: path.resolve(__dirname, 'styles'),
+      styles: path.resolve(__dirname, 'styles'),
       examples: path.resolve(__dirname, 'examples'),
       lib: path.resolve(__dirname, 'lib'),
     },
@@ -43,7 +43,7 @@ module.exports = {
       {
         test: /\.svg$/,
         loader: 'svg-sprite-loader',
-        include: path.resolve(__dirname, 'svgs'),
+        include: path.resolve(__dirname, 'assets/svgs'),
         options: {
           symbolId: '[name]-icon'
         }
@@ -51,7 +51,7 @@ module.exports = {
       {
         test: /\.(eot|woff(2)?|ttf|svg)$/,
         loader: 'file-loader',
-        exclude: path.resolve(__dirname, 'svgs'),
+        exclude: path.resolve(__dirname, 'assets/svgs'),
       },
       {
         test: /\.md$/,
@@ -60,10 +60,10 @@ module.exports = {
       {
         test: /\.(styl|stylus|css)$/,
         use: [
-          {
+          devMode ? 'style-loader' : {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: !devMode
+              // publicPath: '../'
             }
           },
           'css-loader',

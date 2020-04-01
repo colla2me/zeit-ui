@@ -1,9 +1,8 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import {createScopedClasses, classes} from 'utils/classes';
 import './importAllIcons';
-import * as ReactDOM from 'react-dom';
-import './icon.scss';
 
 const componentName = 'Icon';
 const sc = createScopedClasses(componentName);

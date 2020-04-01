@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {CSSProperties} from 'react';
-import 'stylesheets/reset.scss';
+import 'styles/index.styl';
 
 declare global {
   interface ZeitFunctionComponent<P = {}> extends React.FunctionComponent<P> {
@@ -18,4 +18,5 @@ declare global {
   type ClassValue = string | string[] | { [k: string]: any } | undefined | false | null;
 }
 
-export {default as Icon} from './icon/icon';
+export {default as Avatar} from './avatar/avatar';
+export {default as Card} from './card/card';

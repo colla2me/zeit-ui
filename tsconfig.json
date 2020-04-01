@@ -28,7 +28,6 @@
     "noUnusedLocals": true
   },
   "include": [
-    "example.tsx",
     "lib/**/*",
     "include/**/*",
     "examples/**/*",
